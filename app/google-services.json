@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "523713137287",
+    "project_id": "espectaculos-mz",
+    "storage_bucket": "espectaculos-mz.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:523713137287:android:2ce17f90eb72c1d2214622",
+        "android_client_info": {
+          "package_name": "com.example.espetaculos_mz"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "523713137287-ujeeafp85add7uddepq5l5328dp26jk1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkGqfg5eUYvZGesAmOlf-kkcTFG7tLK84"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "523713137287-ujeeafp85add7uddepq5l5328dp26jk1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
