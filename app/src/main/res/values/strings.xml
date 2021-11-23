@@ -9,5 +9,13 @@
     <string name="button">Ver Info</string>
     <string name="username">Name</string>
     <string name="registrar">Registrar</string>
+    <string name="registrar_espectaculo">Registrar Espectaculo</string>
+    <string name="registo_de_espectaculo">Registo de Espectaculo</string>
+    <string name="nome_do_espectaculo">Nome do Espectaculo</string>
+    <string name="promotor">Promotor</string>
+    <string name="local">Local</string>
+    <string name="quantidade_de_bilhetes">Quantidade de Bilhetes</string>
+    <string name="descricao_do_espectaculo">Descricao do Espectaculo</string>
+    <string name="espectaculos">Espectaculos</string>
 
 </resources>

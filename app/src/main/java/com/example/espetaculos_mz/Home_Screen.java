@@ -3,6 +3,7 @@ package com.example.espetaculos_mz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +24,9 @@ public class Home_Screen extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private FirebaseFirestore db;
     private Button btn;
-   private ListView list;
+    private Button btn2;
+
+    private ListView list;
     private static final String TAG = "MyActivity";
 
     @Override
@@ -39,12 +42,24 @@ public class Home_Screen extends AppCompatActivity {
         setContentView(R.layout.activity_home__screen);
         loginUser = findViewById(R.id.data);
         btn = findViewById(R.id.btn_home);
+        btn2 = findViewById(R.id.pub_espectaculo_form);
 
+
+        btn2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Home_Screen.this,Reg_Espectaculo.class);
+
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
+                finish();
+            }
+        });
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.collection("users")
+                db.collection("espectaculos")
                         .get()
                         .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                             @Override
