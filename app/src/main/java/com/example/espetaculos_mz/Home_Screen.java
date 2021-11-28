@@ -25,6 +25,7 @@ public class Home_Screen extends AppCompatActivity {
     private FirebaseFirestore db;
     private Button btn;
     private Button btn2;
+    private Button btn3;
 
     private ListView list;
     private static final String TAG = "MyActivity";
@@ -41,9 +42,9 @@ public class Home_Screen extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home__screen);
         loginUser = findViewById(R.id.data);
-        btn = findViewById(R.id.btn_home);
+//        btn = findViewById(R.id.);
         btn2 = findViewById(R.id.pub_espectaculo_form);
-
+        btn3 = findViewById(R.id.btn_events);
 
         btn2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,29 +53,39 @@ public class Home_Screen extends AppCompatActivity {
 
                 intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
                 startActivity(intent);
-                finish();
+//                finish();
             }
         });
 
-        btn.setOnClickListener(new View.OnClickListener() {
+//        btn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                db.collection("espectaculos")
+//                        .get()
+//                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+//                            @Override
+//                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+//                                if (task.isSuccessful()) {
+//                                    for (QueryDocumentSnapshot document : task.getResult()) {
+//                                        Toast.makeText(Home_Screen.this, "INFO : "+document.getId() + " => " + document.getData().get("nome"), Toast.LENGTH_LONG).show();
+//
+//                                        Log.d(TAG, document.getId() + " => " + document.getData());
+//                                    }
+//                                } else {
+//                                    Log.w(TAG, "Error getting documents.", task.getException());
+//                                }
+//                            }
+//                        });
+//            }
+//        });
+
+        btn3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                db.collection("espectaculos")
-                        .get()
-                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                            @Override
-                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                                if (task.isSuccessful()) {
-                                    for (QueryDocumentSnapshot document : task.getResult()) {
-                                        Toast.makeText(Home_Screen.this, "INFO : "+document.getId() + " => " + document.getData(), Toast.LENGTH_LONG).show();
+                Intent intent = new Intent( Home_Screen.this,view_events.class);
 
-                                        Log.d(TAG, document.getId() + " => " + document.getData());
-                                    }
-                                } else {
-                                    Log.w(TAG, "Error getting documents.", task.getException());
-                                }
-                            }
-                        });
+                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                startActivity(intent);
             }
         });
 

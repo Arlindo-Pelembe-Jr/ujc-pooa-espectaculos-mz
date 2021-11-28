@@ -11,7 +11,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Reg_Espectaculo"></activity>
+        <activity android:name=".Payments_Events"></activity>
+        <activity android:name=".custom_List_View" />
+        <activity android:name=".view_events" />
+        <activity android:name=".Reg_Espectaculo" />
         <activity android:name=".Sign_In" />
         <activity android:name=".Home_Screen" />
         <activity android:name=".MainActivity">

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -33,6 +34,7 @@ public class Sign_In extends AppCompatActivity {
     private FirebaseFirestore db;
     ProgressDialog pd;
     private static final String TAG = "MyActivity";
+    Context context;
 
         @Override
     public  void onStart(){
@@ -69,14 +71,14 @@ public class Sign_In extends AppCompatActivity {
                 } else if (txtPassword.length() < 6){
                     Toast.makeText(Sign_In.this, "Password too short!", Toast.LENGTH_SHORT).show();
                 } else {
-                    registerUser(txtUsername ,  txtEmail , txtPassword);
+                    registerUser(txtUsername ,  txtEmail , txtPassword,Sign_In.this);
                 }
             }
         });
     }
 
 
-    private void registerUser(final String username, final String email, String password){
+    private void registerUser(final String username, final String email, String password,Context context){
         pd.setMessage("Please Wait!");
         pd.show();
 

@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -23,11 +24,14 @@ public class Reg_Espectaculo extends AppCompatActivity {
     private EditText promotorName;
     private EditText local;
     private EditText qtdBilhete;
+    private EditText preco;
+
     private EditText desc;
     private Button btnRegEspec;
     private FirebaseFirestore db;
     ProgressDialog pd;
     private static final String TAG = "MyActivity";
+    Context context;
 
 
 
@@ -49,7 +53,7 @@ public class Reg_Espectaculo extends AppCompatActivity {
         qtdBilhete = findViewById(R.id.qtd_bilhete);
         desc = findViewById(R.id.desc_espectaculo);
         btnRegEspec = findViewById(R.id.pub_espectaculo_form);
-
+        preco = findViewById(R.id.preco);
         pd = new ProgressDialog(this);
 
         btnRegEspec.setOnClickListener(new View.OnClickListener() {
@@ -60,21 +64,27 @@ public class Reg_Espectaculo extends AppCompatActivity {
                 String txtLocal = local.getText().toString();
                 String txtQtdBilh = qtdBilhete.getText().toString();
                 String txtDesc = desc.getText().toString();
+                String txtPreco = preco.getText().toString();
 
-                regEspectaculo(txtName,txtPromotor,txtLocal,txtQtdBilh,txtDesc);
+
+                regEspectaculo(txtName,txtPromotor,txtLocal,txtQtdBilh,txtDesc,txtPreco ,Reg_Espectaculo.this);
             }
         });
     }
 
-    private void regEspectaculo(String nameE,String promotor,String local,String qtd,String des){
+    private void regEspectaculo(String nameE,String promotor,String local,String qtd,String des,String preco,Context context){
         pd.setMessage("Please Wait!");
         pd.show();
         HashMap<String , Object> map = new HashMap<>();
         map.put("nome",nameE);
         map.put("promotor" , promotor);
         map.put("local" , local);
-        map.put("quantidade",qtd);
+        map.put("quantidade",Integer.parseInt(qtd));
         map.put("descricao",des);
+        map.put("preco",Integer.parseInt(preco));
+        map.put("qtdVendida",0);
+
+
 
         db.collection("espectaculos")
                 .add(map)
@@ -85,7 +95,7 @@ public class Reg_Espectaculo extends AppCompatActivity {
                         Intent intent = new Intent(Reg_Espectaculo.this, Home_Screen.class);
                         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK |Intent.FLAG_ACTIVITY_CLEAR_TOP);
                         startActivity(intent);
-                        finish();
+//                        finish();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {

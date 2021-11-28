@@ -3,6 +3,7 @@ package com.example.espetaculos_mz;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -21,7 +22,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
     private TextView text_app;
     private EditText email;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity {
     private Button log_in;
     private Button sign_in;
     private FirebaseAuth mAuth;
+    Context context;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         log_in = findViewById(R.id.btn_log_in);
         sign_in = findViewById(R.id.btn_sign_in);
         mAuth = FirebaseAuth.getInstance();
+        log_in.setOnClickListener(this);
 
         sign_in.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -65,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(txt_email) || TextUtils.isEmpty(txt_password)){
                     Toast.makeText(MainActivity.this, "Empty Credentials!", Toast.LENGTH_SHORT).show();
                 } else {
-                    loginUser(txt_email , txt_password);
+                    loginUser(txt_email , txt_password,MainActivity.this);
                 }
 //                startActivity(new Intent(MainActivity.this,Home_Screen.class));
             }
@@ -81,14 +84,14 @@ public class MainActivity extends AppCompatActivity {
             currentUser.reload();
         }
     }
-    private void loginUser(String email, String password) {
+    private void loginUser(String email, String password,Context context) {
         mAuth.signInWithEmailAndPassword(email,password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override
             public void onSuccess(AuthResult authResult) {
-                Toast.makeText(MainActivity.this, "Successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(MainActivity.this, "Welcome " + mAuth.getCurrentUser().getEmail(), Toast.LENGTH_SHORT).show();
 
                 startActivity(new Intent(MainActivity.this,Home_Screen.class));
-                finish();
+//                finish();
             }
         });
 
@@ -114,4 +117,8 @@ public class MainActivity extends AppCompatActivity {
 //        });
     }
 
+    @Override
+    public void onClick(View v) {
+
+    }
 }

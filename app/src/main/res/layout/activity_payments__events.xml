@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Payments_Events">
+
+    <ImageView
+        android:id="@+id/img_event_pay"
+        android:layout_width="198dp"
+        android:layout_height="162dp"
+        android:layout_marginTop="56dp"
+        android:contentDescription="@string/todo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txt_desc_event"
+        android:layout_width="2dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_event_pay" />
+
+    <Button
+        android:id="@+id/increment"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="96dp"
+        android:text="@string/increment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc_event" />
+
+    <Button
+        android:id="@+id/payment"
+        android:layout_width="137dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="232dp"
+        android:layout_marginEnd="4dp"
+        android:text="@string/pagar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/qtdPay" />
+
+    <Button
+        android:id="@+id/decrement"
+        android:layout_width="41dp"
+        android:layout_height="37dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="24dp"
+        android:text="@string/decrement"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc_event" />
+
+    <TextView
+        android:id="@+id/qtdPay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/quantidade"
+        app:layout_constraintEnd_toStartOf="@+id/increment"
+        app:layout_constraintHorizontal_bias="0.368"
+        app:layout_constraintStart_toEndOf="@+id/decrement"
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc_event" />
+</androidx.constraintlayout.widget.ConstraintLayout>
