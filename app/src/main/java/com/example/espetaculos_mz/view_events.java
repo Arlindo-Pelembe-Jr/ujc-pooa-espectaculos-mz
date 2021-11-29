@@ -104,14 +104,16 @@ public class view_events extends AppCompatActivity {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Toast.makeText(view_events.this,"Clicked"+position,Toast.LENGTH_SHORT).show();
-                Toast.makeText(view_events.this,"Object"+parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
+//                Toast.makeText(view_events.this,"Clicked"+position,Toast.LENGTH_SHORT).show();
+//                Toast.makeText(view_events.this,"Object"+parent.getItemAtPosition(position),Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(view_events.this,Payments_Events.class);
                 i.putExtra("id",espectaculo.get(position).getId());
 
                 i.putExtra("nome",espectaculo.get(position).getNome());
                 i.putExtra("quantidade",espectaculo.get(position).getQuantidade());
                 i.putExtra("qtdVendida",espectaculo.get(position).getQtdVendida());
+                i.putExtra("preco",espectaculo.get(position).getPreco());
+
                 startActivity(i);
             }
         });

@@ -24,5 +24,6 @@
     <string name="decrement">-</string>
     <string name="pagar">Pagar</string>
     <string name="increment">+</string>
+    <string name="nr_mpesa">Nr. Mpesa</string>
 
 </resources>

@@ -29,8 +29,8 @@
 
     <Button
         android:id="@+id/increment"
-        android:layout_width="41dp"
-        android:layout_height="37dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="96dp"
         android:text="@string/increment"
@@ -40,8 +40,8 @@
     <Button
         android:id="@+id/payment"
         android:layout_width="137dp"
-        android:layout_height="41dp"
-        android:layout_marginTop="232dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="268dp"
         android:layout_marginEnd="4dp"
         android:text="@string/pagar"
         app:layout_constraintEnd_toEndOf="parent"
@@ -49,13 +49,15 @@
 
     <Button
         android:id="@+id/decrement"
-        android:layout_width="41dp"
-        android:layout_height="37dp"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
         android:layout_marginStart="84dp"
         android:layout_marginTop="24dp"
         android:text="@string/decrement"
+        android:textColor="#795548"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt_desc_event" />
+        app:layout_constraintTop_toBottomOf="@+id/txt_desc_event"
+        tools:ignore="TextContrastCheck,TextContrastCheck,TextContrastCheck,TextContrastCheck" />
 
     <TextView
         android:id="@+id/qtdPay"
@@ -67,4 +69,24 @@
         app:layout_constraintHorizontal_bias="0.368"
         app:layout_constraintStart_toEndOf="@+id/decrement"
         app:layout_constraintTop_toBottomOf="@+id/txt_desc_event" />
+
+    <EditText
+        android:id="@+id/nr_mpesa"
+        android:layout_width="314dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="248dp"
+        android:autofillHints=""
+        android:ems="10"
+        android:hint="@string/nr_mpesa"
+        android:textColorHint="#546E7A"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        app:layout_constraintBottom_toTopOf="@+id/payment"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/img_event_pay"
+        app:layout_constraintVertical_bias="0.28"
+        tools:ignore="TextContrastCheck,TextContrastCheck" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
